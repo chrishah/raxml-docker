@@ -14,6 +14,7 @@ RUN wget https://github.com/stamatak/standard-RAxML/archive/v8.2.12.tar.gz && \
 	rm *.o && \
 	ln -s $(pwd)/raxmlHPC-PTHREADS-SSE3 /usr/bin/raxml && \
 	chmod a+x ./usefulScripts/*.* && \
+	sed -i 's/^\$raxmlExecutable =*.*/\$raxmlExecutable = "raxml";/' ./usefulScripts/ProteinModelSelection.pl && \
 	ln -s $(pwd)/usefulScripts/*.* /usr/bin/
 
 #ENV PATH="/usr/src/standard-RAxML-8.2.12/usefulScripts:${PATH}"
